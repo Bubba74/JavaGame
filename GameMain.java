@@ -15,6 +15,9 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+//Welcome to my JavaGame!!!
+//Please note that it is not NEARLY finished and may not be very appealing.
+
 public class GameMain {
 	
 	public static String props;
@@ -26,6 +29,8 @@ public class GameMain {
 	public static void main(String Args[]){
 		Monster.init();
 		print("Enter save file name: ");
+		print("If that save does not exist it will ");
+		System.out.print("be save as such when you exit.");
 		String save = input.nextLine().toString();
 		GameMain.props = save;
 		reload();
