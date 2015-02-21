@@ -1,14 +1,9 @@
 package GamePackage;
 
-import javax.swing.*;
-
 import java.util.Scanner;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.Properties;
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -29,8 +24,6 @@ public class GameMain {
 	public static void main(String Args[]){
 		Monster.init();
 		print("Enter save file name: ");
-		print("If that save does not exist it will ");
-		System.out.print("be save as such when you exit.");
 		String save = input.nextLine().toString();
 		GameMain.props = save;
 		reload();
@@ -94,7 +87,7 @@ public class GameMain {
 			fight();
 		}if (action == 2){
 			space(3);
-			shop();
+			Frames.shop();
 		}if (action == 3){
 			space(2);
 			Character.getStats();
@@ -102,11 +95,7 @@ public class GameMain {
 			nextAction();
 		}if (action == 4){
 			exit();
-		}if (action == 17){
-			space(2);
-			Blackmarket.blackMarket();
 		}
-		
 	}//nextAction method
 	
 	public static void fight(){
@@ -166,33 +155,6 @@ public class GameMain {
 		}
 		nextAction();
 	}//battle method
-	
-	public static void shop(){
-		int delay = GameMain.rn.nextInt(2) + 2;
-		print("Welcome to the shop, " + Character.getName);
-		print("Balance: " + Character.getMoney);
-		
-		space(1);
-		
-		print("Thank you for coming! Take 3 dollars for free!");
-		print("\" Money UP 3 \"");
-		Character.getMoney += 3;
-		print("Balance: " + Character.getMoney);
-		
-		space(2);
-		
-		print("Shop currently under maintenance, redirecting ");
-		for (int i=0 ; i<(delay - 1) ; i++ ) {
-			System.out.print(".");
-			try{
-				TimeUnit.SECONDS.sleep(1);
-			} catch (InterruptedException e){
-			}
-		}
-		System.out.println(".");
-		nextAction();
-		
-	}//shop method
 	
 	public static void space(int numOfLines){
 		//prints # of empty lines equal to numOfLines
